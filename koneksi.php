@@ -1,14 +1,13 @@
 <?php
-$servername = "mysql.hostinger.com";
+$servername = "127.0.0.1";
 $database = "buku_saku_sop";
-$username = "u266072517_user";
-$password = "buystuffpwd";
+$username = "root";
+$password = "";
 // Create connection
 $conn = mysqli_connect($servername, $username, $password, $database);
 // Check connection
 if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
-echo "Connected successfully";
-mysqli_close($conn);
-?>
+// echo "Connected successfully";
+// mysqli_close($conn);

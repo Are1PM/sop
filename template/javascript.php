@@ -41,22 +41,23 @@
 <script src="assets/dist/js/pages/dashboard.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="assets/dist/js/demo.js"></script>
+<script src="assets/dist/js/sweetalert2.all.min.js"></script>
 <!-- page script -->
 <script>
-  $(function () {
+  $(function() {
     $('#example1').DataTable()
     $('#example2').DataTable({
-      'paging'      : true,
+      'paging': true,
       'lengthChange': false,
-      'searching'   : false,
-      'ordering'    : true,
-      'info'        : true,
-      'autoWidth'   : false
+      'searching': false,
+      'ordering': true,
+      'info': true,
+      'autoWidth': false
     })
   })
 </script>
 <script>
-  $(function () {
+  $(function() {
 
 
     //Initialize Select2 Elements
@@ -66,6 +67,45 @@
     CKEDITOR.replace('editor1')
     //bootstrap WYSIHTML5 - text editor
     $('.textarea').wysihtml5()
+
+
   })
 </script>
+<script>
+  $(function() {
+    const head = $('.flash').data('head')
+    const id = $('.flash').data('id')
+    const flash = $('.flash').data('flash')
+    const alert = $('.flash').data('alert')
+    if (id) {
 
+      Swal.fire(
+        head,
+        id + ' ' + flash,
+        alert)
+
+    }
+
+    $('.tombol-hapus').click(function(e) {
+      e.preventDefault();
+      let data = $(this).data('data')
+      let href = $(this).attr('href')
+
+      Swal.fire({
+        title: 'Anda Yakin?',
+        text: "Anda akan menghapus data " + data + "!",
+        type: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Ya, hapus!',
+        cancelButtonText: 'Batal!'
+      }).then((result) => {
+        if (result) {
+          document.location.href = href
+        }
+
+      })
+    })
+  })
+</script>
