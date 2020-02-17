@@ -58,15 +58,12 @@ else :
                       <a href="#" class="btn btn-default btn-flat">Profile</a>
                     </div>
                     <div class="pull-right">
-                      <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                      <a href="?go=sign-out" class="btn btn-default btn-flat">Sign out</a>
                     </div>
                   </li>
                 </ul>
               </li>
-              <!-- Control Sidebar Toggle Button -->
-              <li>
-                <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
-              </li>
+
             </ul>
           </div>
         </nav>
@@ -112,6 +109,8 @@ else :
               include("application/master-data/SOP/data_sop.php");
             } elseif ($_GET['go'] == "form-pilih-sop") {
               include("application/master-data/SOP/form_pilih_sop.php");
+            } elseif ($_GET['go'] == "sign-out") {
+              include("template/action_logout.php");
             }
           }
 

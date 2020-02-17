@@ -39,7 +39,7 @@ $hasil = mysqli_query($conn, $query);
           <th>NO</th>
           <th>Kode Jurusan</th>
           <th>Jurusan/Prodi</th>
-          <th class="text-center">ACTION</th>
+          <th class="text-center">Aksi</th>
         </tr>
       </thead>
       <tbody>

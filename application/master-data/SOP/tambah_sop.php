@@ -1,76 +1,77 @@
-<div class="row">
-        <div class="col-md-12">
-          <div class="box box-info">
-            <div class="box-header">
-              <h3 class="box-title"> Tambah SOP/Buat SOP
-              </h3>
-              <br
-             
-              <div class="form-group">
-                <label>JURUSAN/Prodi</label>
-                <select class="form-control select2" style="width: 100%;">
-                  <option selected="selected">--pilih--</option>
-                  <option>Matematika</option>
-                  <option>Statistik</option>
-                  <option>Ilmu Komputer</option>
-                </select>
-              </div> 
-              <form role="form">
-              <div class="box-body">
-                <div class="form-group">
-                  <label for="exampleInputjurusan/prodi">JUDUL</label>
-                  <input type="judul" class="form-control" id="examplejudul" placeholder="masukan judul">
-                  <br>
-                  <label for="exampleInputjurusan/prodi">Versi</label>
-                  <input type="Versi" class="form-control" id="exampleversi" placeholder="masukan Versi">
-              </div>
-              <!-- Date -->
-              <div class="form-group">
-                <label>Tgl/Thn</label>
-                <div class="input-group date">
-                  <div class="input-group-addon">
-                    <i class="fa fa-calendar"></i>
-                  </div>
-                  <input type="text" class="form-control pull-right" id="datepicker" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask>
-                </div>
-              </div>
-                <!-- /.input group -->
-            </div>
-              <!-- tools box -->
-              <br>
-              <h4>Isi SOP</h4>
-              <div class="pull-right box-tools">
-                <button type="button" class="btn btn-info btn-sm" data-widget="collapse" data-toggle="tooltip"
-                        title="Collapse">
-                  <i class="fa fa-minus"></i></button>
-                <button type="button" class="btn btn-info btn-sm" data-widget="remove" data-toggle="tooltip"
+<?php
+include 'koneksi.php';
+$query = mysqli_query($conn, 'SELECT * FROM tb_jurusan');
+?>
 
-                        title="Remove">
-                  <i class="fa fa-times"></i></button>
-              </div>
-              <!-- /. tools -->
-              </div>
-            </div>
-            <!-- /.box-header -->
-            <div class="box-body pad">
-              <form>
-                    <textarea id="editor1" name="editor1" rows="10" cols="80">
-                    </textarea>
-              </form>
-            </div>
-          </div>
-          <!-- /.box -->
-          <div class="form-group">
-                  <label for="exampleInputFile">File input</label>
-                  <input type="file" id="exampleInputFile">
-                </div>
-                <div class="checkbox">
-                </div>
-                <div class="box-footer">
-                  <button type="submit" class="btn btn-primary">Submit</button>
-                  </div>
-                </form>
-                </div>
-        </div>
-        <!-- /.col-->
+<div class="row">
+  <div class="col-md-12">
+
+    <div class="box box-primary">
+      <div class="box-header with-border">
+        <h3 class="box-title">Tambah SOP</h3>
       </div>
+      <!-- /.box-header -->
+      <!-- form start -->
+      <form role="form">
+        <div class="box-body">
+          <div class="form-group">
+            <label>Jurusan/Prodi</label>
+            <select class="form-control select2" name="jurusan" style="width: 100%;">
+              <option selected="selected">--pilih--</option>
+              <?php
+              while ($data = mysqli_fetch_array($query)) {
+                echo "<option value=" . $data['kode_jurusan'] . ">" . $data['jurusan'] . "</option>";
+              }
+
+              ?>
+
+            </select></div>
+          <div class="form-group">
+            <label for="judul">Judul</label>
+            <input type="text" class="form-control" name="judul" id="judul" placeholder="Masukkan jurusan">
+          </div>
+          <div class="form-group">
+            <label for="versi">Versi</label>
+            <input type="text" class="form-control" name="versi" id="versi" placeholder="Masukkan versi">
+          </div>
+          <div class="form-group">
+            <label>Tgl</label>
+
+            <div class="input-group date">
+              <div class="input-group-addon">
+                <i class="fa fa-calendar"></i>
+              </div>
+              <input type="text" class="form-control pull-right" id="datepicker">
+            </div>
+            <!-- /.input group -->
+          </div>
+
+          <div class="form-group">
+            <label for="exampleInputFile">File input</label>
+            <input type="file" name="tgl" id="exampleInputFile">
+          </div>
+          <div class="form-group">
+            <a id="tombol-ketik" class="btn btn-success">
+              <i class="fa  fa-keyboard-o"></i> Ketik
+            </a>
+          </div>
+
+          <div id="ckedit" class="form-group">
+            <textarea id="editor1" name="editor1" rows="10" cols="80">
+                          </textarea>
+          </div>
+
+
+        </div>
+        <!-- /.box-body -->
+
+        <div class="box-footer">
+          <button type="submit" class="btn btn-primary">Simpan</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+
+</div>
+<!-- /.box -->

@@ -68,10 +68,21 @@
     //bootstrap WYSIHTML5 - text editor
     $('.textarea').wysihtml5()
 
+    $('#datepicker').datepicker({
+      autoclose: true
+    })
+
+    $('#ckedit').hide()
 
   })
 </script>
 <script>
+  $('#tombol-ketik').click(function(e) {
+    $(this).preventDefault
+    var display;
+    $('#ckedit').toggle(display)
+    console.log(display);
+  })
   $(function() {
     const head = $('.flash').data('head')
     const id = $('.flash').data('id')
@@ -101,11 +112,21 @@
         confirmButtonText: 'Ya, hapus!',
         cancelButtonText: 'Batal!'
       }).then((result) => {
-        if (result) {
+        if (result.value) {
           document.location.href = href
+        } else {
+          Swal.fire(
+            'Batal',
+            'Data batal dihapus',
+            'error')
         }
 
       })
     })
   })
 </script>
+<!-- <noscript>
+  <div>
+    selamat datang
+  </div>
+</noscript> -->
