@@ -1,7 +1,7 @@
 <body class="hold-transition login-page">
   <div class="login-box">
     <div class="login-logo">
-      <a href="../../index2.html"><b>BUKU SAKU SOP</b></a><b>
+      <a href="../index.php"><b>BUKU SAKU SOP</b></a><b>
       </b></div><b>
       <!-- /.login-logo -->
       <div class="login-box-body">

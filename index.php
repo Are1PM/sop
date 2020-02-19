@@ -1,8 +1,9 @@
-<!DOCTYPE html>
-<html>
 <?php
+ob_start();
 session_start();
 ?>
+<!DOCTYPE html>
+<html>
 
 <head>
   <title>Aplikasi Buku Saku SOP</title>
@@ -105,6 +106,8 @@ else :
               include("application/master-data/jurusan/data-jurusan.php");
             } elseif ($_GET['go'] == "tambah-sop") {
               include("application/master-data/SOP/tambah_sop.php");
+            } elseif ($_GET['go'] == "proses-sop") {
+              include("application/master-data/SOP/proses_sop.php");
             } elseif ($_GET['go'] == "data-sop") {
               include("application/master-data/SOP/data_sop.php");
             } elseif ($_GET['go'] == "form-pilih-sop") {
@@ -132,3 +135,6 @@ include_once('template/javascript.php');
   </body>
 
 </html>
+<?php
+ob_end_flush();
+?>

@@ -12,7 +12,7 @@ $query = mysqli_query($conn, 'SELECT * FROM tb_jurusan');
       </div>
       <!-- /.box-header -->
       <!-- form start -->
-      <form role="form">
+      <form role="form" action="?go=proses-sop" method="post">
         <div class="box-body">
           <div class="form-group">
             <label>Jurusan/Prodi</label>
@@ -66,7 +66,7 @@ $query = mysqli_query($conn, 'SELECT * FROM tb_jurusan');
         <!-- /.box-body -->
 
         <div class="box-footer">
-          <button type="submit" class="btn btn-primary">Simpan</button>
+          <button type="submit" class="btn btn-primary" name="tambah_sop">Simpan</button>
         </div>
       </form>
     </div>
