@@ -43,11 +43,11 @@ if (isset($_POST['go-data'])) {
             <td><?= $data['versi'] ?></td>
             <td><?= $data['tgl_upload'] ?></td>
             <td class="text-center">
-              <a class="btn btn-sm btn-primary" href="?go=ubah-jurusan&kd=<?= $data['kode_jurusan'] ?>">
+              <a class="btn btn-sm btn-primary" href="#">
                 <i class="fa fa-edit"></i> Edit
               </a>
               |
-              <a class="btn btn-sm btn-danger tombol-hapus" href="?go=hapus-jurusan&kd=<?= $data['kode_jurusan'] ?>" data-data="Jurusan <?= ucwords(strtolower($data['jurusan'])) ?>">
+              <a class="btn btn-sm btn-danger -tombol-hapus" href="#" data-data="Jurusan <?= ucwords(strtolower($data['jurusan'])) ?>">
                 <i class="fa fa-trash"></i> hapus
               </a>
             </td>
