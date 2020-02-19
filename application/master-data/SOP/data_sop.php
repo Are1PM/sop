@@ -7,7 +7,7 @@ if (isset($_POST['go-data'])) {
   #codn query disini
 
 } else {
-  header('Location:?go=data-sop');
+  header('Location:?go=form-pilih-sop');
 }
 
 
