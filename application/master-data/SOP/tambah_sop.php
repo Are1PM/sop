@@ -16,7 +16,7 @@ $query = mysqli_query($conn, 'SELECT * FROM tb_jurusan');
         <div class="box-body">
           <div class="form-group">
             <label>Jurusan/Prodi</label>
-            <select class="form-control select2" name="jurusan" style="width: 100%;">
+            <select class="form-control select2" name="kode_jurusan" style="width: 100%;">
               <option selected="selected">--pilih--</option>
               <?php
               while ($data = mysqli_fetch_array($query)) {
@@ -41,7 +41,7 @@ $query = mysqli_query($conn, 'SELECT * FROM tb_jurusan');
               <div class="input-group-addon">
                 <i class="fa fa-calendar"></i>
               </div>
-              <input type="text" class="form-control pull-right" id="datepicker">
+              <input type="text" name="tgl" class="form-control pull-right" id="datepicker">
             </div>
             <!-- /.input group -->
           </div>
@@ -57,7 +57,7 @@ $query = mysqli_query($conn, 'SELECT * FROM tb_jurusan');
           </div>
 
           <div id="ckedit" class="form-group">
-            <textarea id="editor1" name="editor1" rows="10" cols="80">
+            <textarea id="editor1" name="isi_sop" rows="10" cols="80">
                           </textarea>
           </div>
 
@@ -66,7 +66,7 @@ $query = mysqli_query($conn, 'SELECT * FROM tb_jurusan');
         <!-- /.box-body -->
 
         <div class="box-footer">
-          <button type="submit" class="btn btn-primary" name="tambah_sop">Simpan</button>
+          <button type="submit" class="btn btn-primary" name="tambah-sop">Simpan</button>
         </div>
       </form>
     </div>

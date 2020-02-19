@@ -16,10 +16,13 @@ if (isset($_POST['login'])) {
     $users = mysqli_query($conn, "SELECT * FROM tb_user WHERE username='$username' AND password='$password'");
     $cek = mysqli_num_rows($users);
 
+    $dt = mysqli_fetch_array($users, MYSQLI_ASSOC);
+
     if (!($cek > 0)) {
       $_SESSION['pesan'] = "Username atau password anda salah!";
     } else {
       $_SESSION['login'] = 'berhasil';
+      $_SESSION['user'] = $dt;
     }
   }
 }
