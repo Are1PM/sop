@@ -1,5 +1,4 @@
 <?php
-include 'koneksi.php';
 $query = mysqli_query($conn, 'SELECT * FROM tb_jurusan');
 ?>
 
@@ -17,7 +16,7 @@ $query = mysqli_query($conn, 'SELECT * FROM tb_jurusan');
           <div class="form-group">
             <label>Jurusan/Prodi</label>
             <select class="form-control select2" name="kode_jurusan" style="width: 100%;">
-              <option selected="selected">--pilih--</option>
+              <option value="" selected="selected">--pilih--</option>
               <?php
               while ($data = mysqli_fetch_array($query)) {
                 echo "<option value=" . $data['kode_jurusan'] . ">" . $data['jurusan'] . "</option>";
@@ -25,7 +24,8 @@ $query = mysqli_query($conn, 'SELECT * FROM tb_jurusan');
 
               ?>
 
-            </select></div>
+            </select>
+          </div>
           <div class="form-group">
             <label for="judul">Judul</label>
             <input type="text" class="form-control" name="judul" id="judul" placeholder="Masukkan jurusan">

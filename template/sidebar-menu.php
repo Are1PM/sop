@@ -47,12 +47,12 @@
         <li><a href="index.php?go=form-pilih-sop"><i class="fa fa-circle-o"></i>Data SOP</a></li>
       </ul>
     </li>
-    <li class=" treeview">
-      <a href="#">
+    <li>
+      <a href="index.php?go=data-user">
         <i class="fa fa-dashboard"></i> <span>Data User</span>
       </a>
     </li>
-    <li class=" treeview">
+    <li>
       <a href="#">
         <i class="fa fa-dashboard"></i> <span>Level</span>
       </a>

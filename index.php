@@ -91,19 +91,19 @@ else :
         <!-- Main content -->
         <section class="content">
           <?php
-
+          include "koneksi.php";
 
           if (isset($_GET['go'])) {
             if ($_GET['go'] == "beranda") {
               include("template/beranda.php");
             } elseif ($_GET['go'] == "tambah-jurusan") {
-              include("application/master-data/jurusan/tambah-jurusan.php");
+              include("application/master-data/jurusan/tambah_jurusan.php");
             } elseif ($_GET['go'] == "ubah-jurusan") {
-              include("application/master-data/jurusan/ubah-jurusan.php");
+              include("application/master-data/jurusan/ubah_jurusan.php");
             } elseif ($_GET['go'] == "hapus-jurusan") {
-              include("application/master-data/jurusan/hapus-jurusan.php");
+              include("application/master-data/jurusan/hapus_jurusan.php");
             } elseif ($_GET['go'] == "data-jurusan") {
-              include("application/master-data/jurusan/data-jurusan.php");
+              include("application/master-data/jurusan/data_jurusan.php");
             } elseif ($_GET['go'] == "tambah-sop") {
               include("application/master-data/SOP/tambah_sop.php");
             } elseif ($_GET['go'] == "proses-sop") {
@@ -112,6 +112,10 @@ else :
               include("application/master-data/SOP/data_sop.php");
             } elseif ($_GET['go'] == "form-pilih-sop") {
               include("application/master-data/SOP/form_pilih_sop.php");
+            } elseif ($_GET['go'] == "data-user") {
+              include("application/master-data/users/data_users.php");
+            } elseif ($_GET['go'] == "tambah-user") {
+              include("application/master-data/users/tambah_user.php");
             } elseif ($_GET['go'] == "sign-out") {
               include("template/action_logout.php");
             }

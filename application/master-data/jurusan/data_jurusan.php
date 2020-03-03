@@ -1,6 +1,4 @@
 <?
-include 'koneksi.php';
-
 
 if (isset($_POST['submit-data'])) {
   $kode_jurusan = $_POST['kode_jurusan'];

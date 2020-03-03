@@ -1,5 +1,4 @@
 <?php
-include 'koneksi.php';
 $data = '';
 if (isset($_GET['kd'])) {
   $kode_jurusan = $_GET['kd'];
