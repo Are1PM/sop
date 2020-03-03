@@ -116,6 +116,8 @@ else :
               include("application/master-data/users/data_users.php");
             } elseif ($_GET['go'] == "tambah-user") {
               include("application/master-data/users/tambah_user.php");
+            } elseif ($_GET['go'] == "proses-tambah") {
+              include("application/master-data/users/proses_tambah.php");
             } elseif ($_GET['go'] == "sign-out") {
               include("template/action_logout.php");
             }

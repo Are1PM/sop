@@ -2,12 +2,17 @@
 
 $query = "SELECT * FROM tb_user u LEFT JOIN tb_level l ON l.id_level=u.id_level";
 $hasil = mysqli_query($conn, $query);
-
+if (isset($_SESSION['pesan'])) {
+  echo $_SESSION['pesan'];
+  unset($_SESSION['pesan']);
+}
 ?>
 <div class="box">
   <div class="box-header">
-    <h3 class="box-title">Data User</h3><br>
-    <a href="?go=tambah-user" class="btn btn-primary"><i class="fa fa-plus"></i> Tambah User</a>
+    <h3 class="box-title">Data User</h3>
+    <div class="col-12 mt-3">
+      <a href="?go=tambah-user" class="btn btn-primary"><i class="fa fa-plus"></i> Tambah User</a>
+    </div>
   </div>
   <!-- /.box-header -->
   <div class="box-body">
