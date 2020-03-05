@@ -41,7 +41,7 @@ else :
               <li class="dropdown user user-menu">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                   <img src="dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
-                  <span class="hidden-xs">Alexan</span>
+                  <span class="hidden-xs"><?= $_SESSION['user']['username'] ?></span>
                 </a>
                 <ul class="dropdown-menu">
                   <!-- User image -->
@@ -79,8 +79,12 @@ else :
         <!-- Content Header (Page header) -->
         <section class="content-header">
           <h1>
-            Buku Saku SOP
-            <small>Admin</small>
+            <?php $hc = explode('-', $_GET['go']);
+            for ($i = 0; $i < count($hc); $i++) {
+              echo ucwords($hc[$i]) . ' ';
+            }
+            ?>
+
           </h1>
           <ol class="breadcrumb">
             <li><a href="#"><i class="fa fa-dashboard"></i>Home</a></li>
@@ -121,6 +125,8 @@ else :
             } elseif ($_GET['go'] == "sign-out") {
               include("template/action_logout.php");
             }
+          } else {
+            header("Location:index.php?go=beranda");
           }
 
           ?>

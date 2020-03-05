@@ -27,7 +27,9 @@ $hasil = mysqli_query($conn, $query);
 ?>
 <div class="box">
   <div class="box-header">
-    <h3 class="box-title">Data Jurusan/Prodi</h3>
+    <div class="col-12 mt-3">
+      <a href="?go=tambah-user" class="btn btn-primary"><i class="fa fa-plus"></i> Tambah User</a>
+    </div>
   </div>
   <!-- /.box-header -->
   <div class="box-body">

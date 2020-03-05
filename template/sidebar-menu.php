@@ -23,31 +23,18 @@
         <i class="fa fa-dashboard"></i> <span>Beranda</span>
       </a>
     </li>
-    <li class="treeview">
-      <a href="#">
+    <li class="<?= ($_GET['go'] == 'data-jurusan') ? "active" : "" ?>">
+      <a href="index.php?go=data-jurusan">
         <i class="fa fa-edit"></i> <span>Jurusan/Prodi</span>
-        <span class="pull-right-container">
-          <i class="fa fa-angle-left pull-right"></i>
-        </span>
       </a>
-      <ul class="treeview-menu">
-        <li><a href="index.php?go=tambah-jurusan"><i class="fa fa-circle-o"></i>Tambah Jurusan/Prodi</a></li>
-        <li><a href="index.php?go=data-jurusan"><i class="fa fa-circle-o"></i>Data Jurusan</a></li>
-      </ul>
+
     </li>
-    <li class=" treeview">
-      <a href="#">
+    <li class="<?= ($_GET['go'] == 'form-pilih-sop') ? "active" : "" ?>">
+      <a href="index.php?go=form-pilih-sop">
         <i class="fa fa-edit"></i> <span>BUKU SOP</span>
-        <span class="pull-right-container">
-          <i class="fa fa-angle-left pull-right"></i>
-        </span>
       </a>
-      <ul class="treeview-menu">
-        <li><a href="index.php?go=tambah-sop"><i class="fa fa-circle-o"></i>Tambah SOP</a></i>
-        <li><a href="index.php?go=form-pilih-sop"><i class="fa fa-circle-o"></i>Data SOP</a></li>
-      </ul>
     </li>
-    <li>
+    <li class="<?= ($_GET['go'] == 'data-user') ? "active" : "" ?>">
       <a href="index.php?go=data-user">
         <i class="fa fa-dashboard"></i> <span>Data User</span>
       </a>
