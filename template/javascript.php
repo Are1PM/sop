@@ -4,7 +4,7 @@
 <script src="assets/bower_components/jquery-ui/jquery-ui.min.js"></script>
 <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
 <script>
-  $.widget.bridge('uibutton', $.ui.button);
+$.widget.bridge('uibutton', $.ui.button);
 </script>
 <!-- Bootstrap 3.3.7 -->
 <script src="assets/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
@@ -44,86 +44,87 @@
 <script src="assets/dist/js/sweetalert2.all.min.js"></script>
 <!-- page script -->
 <script>
-  $(function() {
-    $('#example1').DataTable()
-    $('#example2').DataTable({
-      'paging': true,
-      'lengthChange': false,
-      'searching': false,
-      'ordering': true,
-      'info': true,
-      'autoWidth': false
-    })
-  })
+$(function() {
+     $('#example1').DataTable()
+     $('#example2').DataTable({
+          'paging': true,
+          'lengthChange': false,
+          'searching': false,
+          'ordering': true,
+          'info': true,
+          'autoWidth': false
+     })
+})
 </script>
 <script>
-  $(function() {
+$(function() {
 
 
-    //Initialize Select2 Elements
-    $('.select2').select2();
-    // Replace the <textarea id="editor1"> with a CKEditor
-    // instance, using default configuration.
-    CKEDITOR.replace('editor1')
-    //bootstrap WYSIHTML5 - text editor
-    $('.textarea').wysihtml5()
+     //Initialize Select2 Elements
+     $('.select2').select2();
+     // Replace the <textarea id="editor1"> with a CKEditor
+     // instance, using default configuration.
+     CKEDITOR.replace('editor1')
+     //bootstrap WYSIHTML5 - text editor
+     $('.textarea').wysihtml5()
 
-    $('#datepicker').datepicker({
-      autoclose: true
-    })
+     $('#datepicker').datepicker({
+          autoclose: true,
+          format: "d-m-yyyy"
+     })
 
-    $('#ckedit').hide()
+     $('#ckedit').hide()
 
-  })
+})
 </script>
 <script>
-  $('#tombol-ketik').click(function(e) {
-    $(this).preventDefault
-    var display;
-    $('#ckedit').toggle(display)
-    console.log(display);
-  })
-  $(function() {
-    const head = $('.flash').data('head')
-    const id = $('.flash').data('id')
-    const flash = $('.flash').data('flash')
-    const alert = $('.flash').data('alert')
-    if (id) {
+$('#tombol-ketik').click(function(e) {
+     $(this).preventDefault
+     var display;
+     $('#ckedit').toggle(display)
+     console.log(display);
+})
+$(function() {
+     const head = $('.flash').data('head')
+     const id = $('.flash').data('id')
+     const flash = $('.flash').data('flash')
+     const alert = $('.flash').data('alert')
+     if (id) {
 
-      Swal.fire(
-        head,
-        id + ' ' + flash,
-        alert)
-
-    }
-
-    $('.tombol-hapus').click(function(e) {
-      e.preventDefault();
-      let data = $(this).data('data')
-      let href = $(this).attr('href')
-
-      Swal.fire({
-        title: 'Anda Yakin?',
-        text: "Anda akan menghapus data " + data + "!",
-        type: 'warning',
-        showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        confirmButtonText: 'Ya, hapus!',
-        cancelButtonText: 'Batal!'
-      }).then((result) => {
-        if (result.value) {
-          document.location.href = href
-        } else {
           Swal.fire(
-            'Batal',
-            'Data batal dihapus',
-            'error')
-        }
+               head,
+               id + ' ' + flash,
+               alert)
 
-      })
-    })
-  })
+     }
+
+     $('.tombol-hapus').click(function(e) {
+          e.preventDefault();
+          let data = $(this).data('data')
+          let href = $(this).attr('href')
+
+          Swal.fire({
+               title: 'Anda Yakin?',
+               text: "Anda akan menghapus data " + data + "!",
+               type: 'warning',
+               showCancelButton: true,
+               confirmButtonColor: '#3085d6',
+               cancelButtonColor: '#d33',
+               confirmButtonText: 'Ya, hapus!',
+               cancelButtonText: 'Batal!'
+          }).then((result) => {
+               if (result.value) {
+                    document.location.href = href
+               } else {
+                    Swal.fire(
+                         'Batal',
+                         'Data batal dihapus',
+                         'error')
+               }
+
+          })
+     })
+})
 </script>
 <!-- <noscript>
   <div>

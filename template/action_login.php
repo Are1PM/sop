@@ -1,17 +1,20 @@
 <?php
 session_start();
 include("../koneksi.php");
+$_SESSION['form-error']['judul'] = '';
+$_SESSION['form-error']['isi'] = '';
+
 
 if (isset($_POST['login'])) {
   $username = htmlspecialchars(trim($_POST['user']), ENT_QUOTES);
   $password = htmlspecialchars(trim($_POST['pass']), ENT_QUOTES);
 
   if ($username == "" && $password == "") {
-    $_SESSION['pesan'] = "Username dan password anda tidak boleh kosong!";
+    $_SESSION['error-log'] = "Username dan password anda tidak boleh kosong!";
   } elseif ($username == "") {
-    $_SESSION['pesan'] = "Username anda tidak boleh kosong!";
+    $_SESSION['erro-log'] = "Username anda tidak boleh kosong!";
   } elseif ($password == "") {
-    $_SESSION['pesan'] = "Password anda tidak boleh kosong!";
+    $_SESSION['pesan-log'] = "Password anda tidak boleh kosong!";
   } else {
     $users = mysqli_query($conn, "SELECT * FROM tb_user WHERE username='$username' AND password='$password'");
     $cek = mysqli_num_rows($users);

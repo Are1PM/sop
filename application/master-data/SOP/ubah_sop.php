@@ -1,5 +1,14 @@
 <?php
-$query = mysqli_query($conn, 'SELECT * FROM tb_jurusan');
+if (isset($_GET['id'])) {
+     $id_sop = $_GET['id'];
+     $q1 = mysqli_query($conn, "SELECT * FROM tb_sop WHERE id_sop='$id_sop'");
+     $q2 = mysqli_query($conn, 'SELECT * FROM tb_jurusan');
+
+     $data = mysqli_fetch_array($q1);
+     // print_r($query);
+}
+
+
 ?>
 
 <div class="row">
@@ -17,32 +26,34 @@ $query = mysqli_query($conn, 'SELECT * FROM tb_jurusan');
                               <select class="form-control select2" name="kode_jurusan" style="width: 100%;">
                                    <option value="" selected="selected">--pilih--</option>
                                    <?php
-                            while ($data = mysqli_fetch_array($query)) {
-                                echo "<option value=" . $data['kode_jurusan'] . ">" . $data['jurusan'] . "</option>";
-                            }
+                                   while ($dt = mysqli_fetch_array($q2)) {
+                                        echo "<option value=" . $dt['kode_jurusan'] . " " . (($data['kode_jurusan'] == $dt['kode_jurusan']) ? "selected" : "") . ">" . $dt['jurusan'] . "</option>";
+                                   }
 
-                            ?>
+                                   ?>
 
                               </select>
+                              <input type="hidden" name="id_sop" value="<?= $data['id_sop'] ?>">
                          </div>
                          <div class="form-group">
                               <label for="judul">Judul</label>
-                              <input type="text" class="form-control" name="judul" id="judul"
-                                   placeholder="Masukkan jurusan">
+                              <input type="text" class="form-control" name="judul" value="<?= $data['judul'] ?>"
+                                   id="judul" placeholder="Masukkan jurusan">
                          </div>
                          <div class="form-group">
                               <label for="versi">Versi</label>
-                              <input type="text" class="form-control" name="versi" id="versi"
-                                   placeholder="Masukkan versi">
+                              <input type="text" class="form-control" name="versi" value="<?= $data['versi'] ?>"
+                                   id="versi" placeholder="Masukkan versi">
                          </div>
                          <div class="form-group">
-                              <label>Tanggal</label>
+                              <label>Tgl</label>
 
                               <div class="input-group date">
                                    <div class="input-group-addon">
                                         <i class="fa fa-calendar"></i>
                                    </div>
-                                   <input type="text" name="tgl_upload" placeholder="Tanggal"
+                                   <input type="text" name="tgl_upload"
+                                        value="<?= date("j-n-Y", strtotime($data['tgl_upload'])) ?>"
                                         class="form-control pull-right" id="datepicker">
                               </div>
                               <!-- /.input group -->
@@ -53,15 +64,15 @@ $query = mysqli_query($conn, 'SELECT * FROM tb_jurusan');
                               <input type="file" name="file" id="file">
                          </div>
                          <div class="form-group">
-                              <a data-toggel="tooltip" title="Ketikkan isi sop jika tidak meng-upload file"
-                                   id="tombol-ketik" class="btn btn-success">
+                              <a id="tombol-ketik" class="btn btn-success">
                                    <i class="fa  fa-keyboard-o"></i> Ketik
                               </a>
                          </div>
 
                          <div id="ckedit" class="form-group">
                               <textarea id="editor1" name="isi_sop" rows="10" cols="80">
-                          </textarea>
+                                   <?= $data['isi_sop'] ?>
+                              </textarea>
                          </div>
 
 
@@ -69,7 +80,8 @@ $query = mysqli_query($conn, 'SELECT * FROM tb_jurusan');
                     <!-- /.box-body -->
 
                     <div class="box-footer">
-                         <button type="submit" class="btn btn-primary" name="tambah-sop">Simpan</button>
+                         <button type="submit" class="btn btn-primary" name="ubah-sop">Simpan</button>
+                         <a href="?kode=<?= $data['kode_jurusan'] ?>&go=data-sop" class="btn btn-danger">Kembali</a>
                     </div>
                </form>
           </div>
